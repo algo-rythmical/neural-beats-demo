@@ -4,12 +4,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const generateBtn = document.getElementById("generateBtn");
   const transitionState = document.getElementById("transitionState");
   const downloadBtn = document.getElementById("downloadBtn");
-  const classifyBtn = document.getElementById("classifyBtn");
   const downloadLink = document.getElementById("downloadLink");
   const audio = document.getElementById("audio");
   const canvas = document.getElementById("canvas");
   const promptInput = document.getElementById("promptInput");
-  const classificationInput = document.getElementById("classification-file");
   const ctx = canvas.getContext("2d");
 
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();

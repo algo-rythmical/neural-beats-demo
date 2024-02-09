@@ -1,5 +1,5 @@
-export const fetchAudio = async (prompt) => {
-  return await fetch(
+export const fetchAudio = async (prompt, retry = 1) => {
+  const res = await fetch(
     "https://api-inference.huggingface.co/models/facebook/musicgen-small",
     {
       // headers: { Authorization: "Bearer {API_TOKEN}" },
@@ -8,6 +8,9 @@ export const fetchAudio = async (prompt) => {
         inputs: prompt
       }),
     })
+    if(res.status === 503 && retry > 0)
+      return fetchAudio(prompt, 0)
+    return res
 };
 
 export const classifyAudio = async (hf, buffer) => {
