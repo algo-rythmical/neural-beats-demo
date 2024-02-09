@@ -1,0 +1,15 @@
+:root {
+    --main-bg-color: #2C2C34;
+    --text-color: #eeeeee;
+    --container-shadow: rgba(0, 0, 0, 0.05);
+    --first-secondary-color: #00adb5;
+    --second-secondary-color: #b86a52;
+    --input-bg-color: #232327;
+    --gradient-color-1: #2C2C34;
+    --gradient-color-2: #b86a52;
+    --gradient-color-3: #00adb5;
+    --gradient-color-4: #2C2C34;
+    --bg-music-canvas: #2C2C34;
+    --transition-color: #00adb5;
+  }
+  

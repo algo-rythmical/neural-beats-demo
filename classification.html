@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Neural Beats</title>
+    <link href="static/css/classification.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="icon" href="static/images/logo3_testing2.png">
+  </head>
+  <body>
+    <div class="d-flex flex-column justify-content-center w-100 h-100">
+      <div class="container">
+        <div class="top">
+
+          <div class="logo-container">
+            <a href="/">
+              <img src="static/images/logo3_testing2.png" alt="Logo" class="logo">
+            </a>
+          </div>
+        
+          <div class="navbar">
+            <a href="/">Home</a>
+            <a href="/about.html">About the Project</a>
+            <a href="/contributors.html">Contributors</a>
+            <a href="/classification.html">Classification Output</a>
+          </div>
+          <h1>Welcome to the Neural Beats</h1>
+          <p>Where you can make any music you want.</p>
+        </div>
+        <div class="bottom">
+          <h1>Wanna know something more?</h1>
+          <p>Drop your music, we will take care of it!</p>
+          <div id="dragImage">
+            <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <h6 id="areaText">Drag & Drop File Here</h6>
+            <span>OR</span>
+            <button id="areaButton">Browse File</button>
+            <input type="file" hidden id="classificationInput" accept="audio/*">
+          </div>
+          <button id="generateButton">Classify music</button>
+        </div>
+      </div>
+    </div>
+    <script src="static/js/classification.js" type="module"></script>
+  </body>
+</html>
