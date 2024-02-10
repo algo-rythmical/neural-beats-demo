@@ -42,15 +42,16 @@ document.addEventListener("DOMContentLoaded", async function () {
       let originalColor = promptInput.style.borderColor;
       let i = 0;
       let intervalId = setInterval(function() {
-        promptInput.style.borderColor = i % 2 === 0 ? "#963939" : originalColor;
+        promptInput.style.borderColor = i % 2 === 0 ? "#b86a52" : originalColor;
         if (++i === 4) clearInterval(intervalId);
       }, 200);
+      // color change to red???? ##ba3c3c - TO DISCUSS
       // alert("Invalid prompt: " + prompt);
       let alertDiv = document.createElement("div");
       alertDiv.textContent = "Invalid prompt: " + prompt;
-      alertDiv.style.color = "#963939";
+      alertDiv.style.color = "#b86a52";
       alertDiv.style.padding = "15px";
-      alertDiv.style.border = "2px solid #963939";
+      alertDiv.style.border = "2px solid #b86a52";
       alertDiv.style.borderRadius = "5px";
       alertDiv.style.backgroundColor = "transparent";
       alertDiv.style.position = "absolute";

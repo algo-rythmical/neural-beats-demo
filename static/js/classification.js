@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         classificationFile = event.target.files[0]
         dropArea.classList.add("active");
         dropArea.parentElement.classList.add("active-parent");
+        dragText.textContent = "File Uploaded";
       })
       
       classifyBtn.addEventListener("click", async function () {
@@ -19,12 +20,21 @@ document.addEventListener("DOMContentLoaded", async function () {
           return
         }
         // const tmp = await new Response(classificationFile).arrayBuffer(); //TODO: USE WHEN HUGGINFACE IS READY
-        const res = await classifyAudio(hr, classificationFile)
-        const resObj = await res.json()
+
+        // uncomment this when mock up isn't needed
+        // const res = await classifyAudio(hr, classificationFile)
+        // const resObj = await res.json()
         
+        // console.log(resObj.predicted_genre)
+        // const predictionResult = document.getElementById('predictionResult');
+        // predictionResult.textContent = "Genre of the track is: " + resObj.predicted_genre + ".";
+        const resObj = {
+          predicted_genre: "Rock" // Replace "Rock" with any genre you want to test
+        };
+      
         console.log(resObj.predicted_genre)
         const predictionResult = document.getElementById('predictionResult');
-        predictionResult.textContent = "Your music is from " + resObj.predicted_genre + " genre.";
+        predictionResult.textContent = "Genre of the track is: " + resObj.predicted_genre + ".";
 
 
       })
@@ -53,8 +63,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       
       dropArea.addEventListener("drop", (event)=>{
         event.preventDefault(); 
-         
+        dropArea.parentElement.classList.add("active-parent");
         classificationFile = event.dataTransfer.files[0];
+        dragText.textContent = "File Uploaded";
     })
 
 });
