@@ -17,7 +17,7 @@ body {
 .top {
   background: linear-gradient(90deg, var(--main-bg-color), var(--first-secondary-color));
   width: 100%;
-  height: 50%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,7 +29,7 @@ body {
 .bottom {
   background-color: var(--main-bg-color);
   width: 100%;
-  /* height: 50%; */
+  height: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -140,22 +140,36 @@ button:hover {
 
 .row {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  
   .column {
-    flex: 1 0 21%; 
-    margin: 1%;
-    box-sizing: border-box;
+    flex: 1;
+    margin: 10px;
   }
+ 
   .card {
-    height: 100%; /* Set a specific height for the cards */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    height: 100%;
+    /* width: 100%; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     margin: 8px;
+    border-radius: 5px;
   }
   @media screen and (max-width: 600px) {
     .column {
       flex: 1 0 100%;
     }
   }
+
+  
+.contain {
+  padding: 0 20px;
+}
+
+.title {
+  color: var(--first-secondary-color);
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

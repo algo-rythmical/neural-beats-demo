@@ -20,9 +20,9 @@
         
           <div class="navbar">
             <a href="index.html">Home</a>
+            <a href="classification.html">Classification of Music</a>
             <a href="about.html">About the Project</a>
             <a href="contributors.html">Contributors</a>
-            <a href="classification.html">Classification Output</a>
           </div>
           <h1>Welcome to the Neural Beats</h1>
           <p>Where you can make any music you want.</p>
@@ -33,12 +33,19 @@
           <div id="dragImage">
             <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
             <h6 id="areaText">Drag & Drop File Here</h6>
-            <span>OR</span>
-            <button id="areaButton">Browse File</button>
+            <div class="or-and-button">
+              <span>OR</span>
+              <button id="areaButton">Browse File</button>
+            </div>
+            <!-- <span>OR</span>
+            <button id="areaButton">Browse File</button> -->
             <input type="file" hidden id="classificationInput" accept="audio/*">
           </div>
           <button id="generateButton">Classify music</button>
-        </div>
+          <div id="predictionResultContainer">
+            <h3 id="predictionResultTitle">Prediction Result</h3>
+            <p id="predictionResult"></p>
+          </div>
       </div>
     </div>
     <script src="static/js/classification.js" type="module"></script>

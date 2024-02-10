@@ -25,12 +25,21 @@ document.addEventListener("DOMContentLoaded", async function () {
 
   analyser.smoothingTimeConstant = 0.9; // Adjust this for smoothing
 
+  //Enter key functionality
+  promptInput.addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      generateBtn.click();
+    }
+  });
+
   // Generate music
   generateBtn.addEventListener("click", async function () {
     const prompt = promptInput.value;
 
     if (!isPromptValid(prompt)) {
       console.log("Invalid prompt", prompt); //TODO: do sth in UI
+      alert("Invalid prompt: " + prompt);
       return;
     }
     generateBtn.style.display = "none";
@@ -52,6 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       generateBtn.innerHTML = "Regenerate Music";
     } catch (error) {
       console.log(error); //TODO: do sth in UI
+      alert("An error occurred: " + error); 
     }
   });
     

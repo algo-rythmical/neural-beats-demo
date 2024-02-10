@@ -10,14 +10,14 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  height: 95vh;
+  height: 120vh;
   padding: 20px;
 }
 
 .top {
   background: linear-gradient(90deg, var(--main-bg-color), var(--first-secondary-color));
   width: 100%;
-  height: 50%;
+  height: 40%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,45 +29,12 @@ body {
 .bottom {
   background-color: var(--main-bg-color);
   width: 100%;
-  /* height: 50%; */
+  height: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   user-select: none;
-}
-
-/*Input box*/
-input[type="text"] {
-  padding: 10px 15px;
-  border-radius: 5px;
-  border: 1px solid var(--text-color);
-  width: 70%;
-  margin-top: 10px;
-  transition: border 0.3s;
-  background-color: var(--input-bg-color);
-  color: var(--text-color);
-}
-
-input[type="text"]:focus {
-  border-color: var(--second-secondary-color);
-  outline: none;
-}
-
-/*Button*/
-button {
-  padding: 10px 20px;
-  background-color: var(--first-secondary-color);
-  color: var(--main-bg-color);
-  border: none;
-  border-radius: 5px;
-  margin-top: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-button:hover {
-  background-color: var(--second-secondary-color);
 }
 
 /*Logo*/
@@ -130,6 +97,18 @@ button:hover {
 }
 
 /*Button*/
+button {
+  padding: 10px 20px;
+  background-color: var(--first-secondary-color);
+  color: var(--main-bg-color);
+  border: none;
+  border-radius: 5px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 20px;
+}
+
 button:hover {
   transform: scale(1.05);
   background-color: var(--second-secondary-color);
@@ -160,137 +139,75 @@ button:active {
   }
 }
 
-#canvas {
-  width: 40%;
-  height: 120px; 
-  background-color: var(--bg-music-canvas);
-}
-
-#transitionState {
-  font-size: 20px;
-  font-weight: bold;
-  color: var(--transition-color);
-  margin: 20px 0;
-}
-
-
-/* Music bar*/
-.music-controls {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
-}
-#music-info {
-  font-size: 17px;
-  flex-grow: 1; 
-  text-align: center;
-  margin-left: 30px;
-  margin-right: 30px;
-}
-#play-pause-btn {
-  font-size: 20px;
-}
-#rewind-btn {
-  font-size: 15px;
-  margin-left: 0px;
-  margin-right: 10px;
-}
-#forward-btn {
-  font-size: 15px;
-  margin-left: 10px;
-  margin-right: 30px;
-}
-#downloadBtn {
-  font-size: 20px;
-  margin-left: 10px;
-  margin-right: 30px;
-}
-#song-progress {
-  width: 100%; 
-  height: 10px;
-  background-color: var(--main-bg-color);
-  position: relative;
-}
-#song-progress-bar {
-  height: 10px; 
-  background-color: var(--text-color);
-  position: absolute; 
-  width: 0;
-}
-#current-time {
-  margin-left: 25px;
-  margin-right: 25px;
-}
-
-#volume {
-  display: flex;
-  width: 150px;
-  margin-left: 0px;
-  margin-right: 30px;
-}
-
-
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-.dragImage{
-  border: 2px solid var(--first-secondary-color);
-  height: 500px;
-  width: 600px;
+#dragImage{
+  border: 2px dashed var(--first-secondary-color);
+  height: 350px;
+  width: 350px;
   border-radius: 5px;
   font-weight:400;
   display: flex;
   align-items: center;
-  justify-content: center;
   flex-direction: column;
 }
-.dragImage.active{
-  border: 3px solid var(--first-secondary-color);
+#dragImage.active{
+  border: 3px solid var(--second-secondary-color);
 }
-.dragImage .icon{
+#dragImage .icon{
   font-size: 30px;
   color: #fff;
 }
-.dragImage h6{
+#dragImage #areaText{
   font-size: 20px;
   font-weight: 300;
   color: #fff;
 }
-.dragImage span{
+#dragImage span{
   font-size: 14px;
   font-weight: 300;
   color: #fff;
   margin: 10px 0 15px 0;
 }
-.dragImage button{
+#areaButton{
   padding: 10px 25px;
   font-size: 14px; 
   font-weight: 300;
   outline: none;
   background:transparent;
-  color: #fff;
-  border:1px solid #fff;
+  color: var(--first-secondary-color);
+  border:1px solid var(--first-secondary-color);
   border-radius: 5px;
   cursor: pointer;
   transition:all 0.5s;
 }
 
-.dragImage button:hover{
-    background-color:#fff;
-    color:red;
+#areaButton:hover{
+  background:transparent;
+  color: var(--second-secondary-color);
+  border:2px solid var(--second-secondary-color);
+
 }
 
-.dragImage img{
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
+.or-and-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#predictionResultContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 20px;
   border-radius: 5px;
+  background-color: var(--first-secondary-color);
+  color: var(--main-bg-color);
+  box-shadow: 0px 4px 10px var(--container-shadow);
+  width: 30%;
+  height: 250px;
+  text-align: justify;
+  margin-bottom: 50px;
 }

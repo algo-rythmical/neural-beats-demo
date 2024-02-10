@@ -23,7 +23,13 @@ document.addEventListener("DOMContentLoaded", async function () {
         const resObj = await res.json()
         
         console.log(resObj.predicted_genre)
+        const predictionResult = document.getElementById('predictionResult');
+        predictionResult.textContent = "Your music is from " + resObj.predicted_genre + " genre.";
+
+
       })
+
+
       // Drag and drop functionality
       const dragText = document.getElementById("areaText")
       const areaButton = document.getElementById("areaButton")
