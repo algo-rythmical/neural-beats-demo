@@ -150,6 +150,7 @@ button:active {
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 5px;
 }
 #dragImage.active{
   border: 3px solid var(--second-secondary-color);
@@ -162,12 +163,14 @@ button:active {
   font-size: 20px;
   font-weight: 300;
   color: #fff;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 #dragImage span{
   font-size: 14px;
   font-weight: 300;
   color: #fff;
-  margin: 10px 0 15px 0;
+  margin: 10px 0 10px 0;
 }
 #areaButton{
   padding: 10px 25px;
