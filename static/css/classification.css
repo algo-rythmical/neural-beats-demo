@@ -10,7 +10,7 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  height: 120vh;
+  height: 110vh;
   padding: 20px;
 }
 
@@ -158,6 +158,7 @@ button:active {
 #dragImage .icon{
   font-size: 30px;
   color: #fff;
+  margin-top: 10px;
 }
 #dragImage #areaText{
   font-size: 20px;
@@ -183,6 +184,7 @@ button:active {
   border-radius: 5px;
   cursor: pointer;
   transition:all 0.5s;
+  margin-bottom: 10px;
 }
 
 #areaButton:hover{
@@ -207,8 +209,8 @@ button:active {
   border-radius: 5px;
   background-color: var(--first-secondary-color);
   color: var(--main-bg-color);
-  width: 30%;
-  height: 200px;
+  width: 25%;
+  height: 150px;
   text-align: justify;
   margin-bottom: 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
