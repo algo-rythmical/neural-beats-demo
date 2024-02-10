@@ -1,6 +1,5 @@
 import { HfInference } from 'https://cdn.jsdelivr.net/npm/@huggingface/inference@2.6.4/+esm';
 import { classifyAudio } from "./audio.js";
-
 document.addEventListener("DOMContentLoaded", async function () {
     const hr = new HfInference()
     const classificationInput = document.getElementById("classificationInput");
@@ -12,6 +11,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     classificationInput.addEventListener("change", async (event) => {
         classificationFile = event.target.files[0]
         dropArea.classList.add("active");
+        dropArea.parentElement.classList.add("active-parent");
       })
       
       classifyBtn.addEventListener("click", async function () {

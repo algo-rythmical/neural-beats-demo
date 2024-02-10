@@ -130,8 +130,8 @@ button:hover {
 .text-panel {
   font-size: 14px; 
   border: 2px solid #7c7f81;
-  padding: 10px; 
-  margin-top: 10px; 
+  padding: 5px; 
+  margin-top: 5px; 
   border-radius: 10px;
   text-align:justify;
   background-color: var(--container-shadow);
@@ -155,6 +155,7 @@ button:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
     margin: 8px;
     border-radius: 5px;
+    padding: 5px;
   }
   @media screen and (max-width: 600px) {
     .column {
@@ -172,4 +173,14 @@ button:hover {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
+}
+
+
+.github-link {
+  text-decoration: none;
+  color: inherit;
+}
+.linkedin-link {
+  text-decoration: none;
+  color: inherit;
 }

@@ -170,10 +170,10 @@ button:active {
   font-size: 14px;
   font-weight: 300;
   color: #fff;
-  margin: 10px 0 10px 0;
+  /* margin: 10px 0 10px 0; */
 }
 #areaButton{
-  padding: 10px 25px;
+  /* padding: 10px 25px; */
   font-size: 14px; 
   font-weight: 300;
   outline: none;
@@ -191,7 +191,6 @@ button:active {
   border:2px solid var(--second-secondary-color);
 
 }
-
 .or-and-button {
   display: flex;
   flex-direction: column;
@@ -208,9 +207,14 @@ button:active {
   border-radius: 5px;
   background-color: var(--first-secondary-color);
   color: var(--main-bg-color);
-  box-shadow: 0px 4px 10px var(--container-shadow);
+  box-shadow: 0px 4px 10px #08080800;
   width: 30%;
   height: 250px;
   text-align: justify;
   margin-bottom: 50px;
+}
+
+.active-parent #areaButton {
+  color: var(--second-secondary-color);
+  border-color: var(--second-secondary-color);
 }

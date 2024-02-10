@@ -39,7 +39,30 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (!isPromptValid(prompt)) {
       console.log("Invalid prompt", prompt); //TODO: do sth in UI
-      alert("Invalid prompt: " + prompt);
+      let originalColor = promptInput.style.borderColor;
+      let i = 0;
+      let intervalId = setInterval(function() {
+        promptInput.style.borderColor = i % 2 === 0 ? "#963939" : originalColor;
+        if (++i === 4) clearInterval(intervalId);
+      }, 200);
+      // alert("Invalid prompt: " + prompt);
+      let alertDiv = document.createElement("div");
+      alertDiv.textContent = "Invalid prompt: " + prompt;
+      alertDiv.style.color = "#963939";
+      alertDiv.style.padding = "15px";
+      alertDiv.style.border = "2px solid #963939";
+      alertDiv.style.borderRadius = "5px";
+      alertDiv.style.backgroundColor = "transparent";
+      alertDiv.style.position = "absolute";
+      alertDiv.style.top = "75%"; 
+      alertDiv.style.left = "50%"; 
+      alertDiv.style.transform = "translateX(-50%)"; 
+    
+      promptInput.parentElement.appendChild(alertDiv);
+    
+      setTimeout(function() {
+        promptInput.parentElement.removeChild(alertDiv);
+      }, 2000);
       return;
     }
     generateBtn.style.display = "none";
@@ -150,20 +173,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       draw();
     });
   };
-
- //Highlight the active navigation link when on selected page
-//  function updateActiveNavLink() {
-//   const navLinks = document.querySelectorAll(".navbar a");
-//   const currentPage = window.location.pathname || "/home";
-
-//   navLinks.forEach((link) => {
-//     link.classList.remove("active");
-//     if (link.getAttribute("href") === currentPage) {
-//       link.classList.add("active");
-//     }
-//   });
-// }
-// updateActiveNavLink();
 
   // navigation links hover effect
   document.addEventListener("DOMContentLoaded", function () {
