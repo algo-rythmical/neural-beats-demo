@@ -10,14 +10,14 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  height: 110vh;
+  height: 100%;
   padding: 20px;
 }
 
 .top {
   background: linear-gradient(90deg, var(--main-bg-color), var(--first-secondary-color));
   width: 100%;
-  height: 40%;
+  height: 20em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,7 +143,7 @@ button:active {
 
 #dragImage{
   border: 2px dashed var(--first-secondary-color);
-  height: 350px;
+  height: 200px;
   width: 350px;
   border-radius: 5px;
   font-weight:400;
@@ -184,7 +184,7 @@ button:active {
   border-radius: 5px;
   cursor: pointer;
   transition:all 0.5s;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
 }
 
 #areaButton:hover{
@@ -204,13 +204,13 @@ button:active {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 15px;
+  padding: 15px;
   border-radius: 5px;
   background-color: var(--first-secondary-color);
   color: var(--main-bg-color);
   width: 25%;
-  height: 150px;
+  height: 100px;
   text-align: justify;
   margin-bottom: 50px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
