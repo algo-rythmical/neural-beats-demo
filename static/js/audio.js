@@ -18,7 +18,7 @@ export const classifyAudio = async (hf, buffer) => {
   fd.append('wav', buffer)
   // return await hf.audioClassification({model: 'superb/hubert-large-superb-er', data: buffer})
   return await fetch(
-    "https://srv23.mikr.us:20229/classify_song",
+    "https://neuralbeats.bieda.it/classify_song",
     {
       // headers: { Authorization: "Bearer {API_TOKEN}" },
       method: "POST",
