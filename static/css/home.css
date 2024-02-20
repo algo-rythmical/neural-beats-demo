@@ -173,6 +173,13 @@ button:active {
   margin: 20px 0;
 }
 
+#playerState {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--transition-color);
+  margin: 20px 0;
+}
+
 
 /* Music bar*/
 .music-controls {
@@ -246,4 +253,18 @@ button:active {
   width: 150px;
   margin-left: 0px;
   margin-right: 30px;
+}
+
+.radio-container {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  padding: 20px
+}
+
+.generator-input-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

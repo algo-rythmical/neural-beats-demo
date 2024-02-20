@@ -1,7 +1,7 @@
-import { fetchAudio, isPromptValid, streamToBlob, classifyAudio } from "./audio.js";  
+import { fetchAudio, isPromptValid, streamToBlob } from "./audio.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
-    const generateBtn = document.getElementById("generateBtn");
+  const generateBtn = document.getElementById("generateBtn");
   const transitionState = document.getElementById("transitionState");
   const downloadBtn = document.getElementById("downloadBtn");
   const downloadLink = document.getElementById("downloadLink");
@@ -9,6 +9,38 @@ document.addEventListener("DOMContentLoaded", async function () {
   const canvas = document.getElementById("canvas");
   const promptInput = document.getElementById("promptInput");
   const ctx = canvas.getContext("2d");
+  const radioButtons = document.querySelectorAll('input[name="mode"]');
+  const generatorInputContainer = document.querySelector(
+    ".generator-input-container"
+  );
+  const songProgressBar = document.getElementById("song-progress-bar");
+  const playerState = document.getElementById("playerState");
+  const playPauseBtn = document.getElementById("play-pause-btn");
+
+  const handleRadioButtonChange = (target) => {
+    switch (target.value) {
+      case "soa":
+        generatorInputContainer.style.display = "flex";
+        audio.src = "";
+        playerState.style.display = "none";
+        break;
+      case "experimental":
+        generatorInputContainer.style.display = "none";
+        audio.src = "static/audio/out.wav";
+        playerState.style.display = "block";
+        break;
+
+      default:
+        break;
+    }
+    songProgressBar.style.width = "0%";
+    playPauseBtn.innerHTML = '<i class="fa fa-play"></i>';
+  };
+  for (const radioButton of radioButtons) {
+    radioButton.addEventListener("change", (e) =>
+      handleRadioButtonChange(e.target)
+    );
+  }
 
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
   const analyser = audioContext.createAnalyser();
@@ -26,7 +58,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   analyser.smoothingTimeConstant = 0.9; // Adjust this for smoothing
 
   //Enter key functionality
-  promptInput.addEventListener('keyup', function(event) {
+  promptInput.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
       event.preventDefault();
       generateBtn.click();
@@ -41,7 +73,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       console.log("Invalid prompt", prompt); //TODO: do sth in UI
       let originalColor = promptInput.style.borderColor;
       let i = 0;
-      let intervalId = setInterval(function() {
+      let intervalId = setInterval(function () {
         promptInput.style.borderColor = i % 2 === 0 ? "#b86a52" : originalColor;
         if (++i === 4) clearInterval(intervalId);
       }, 200);
@@ -55,19 +87,20 @@ document.addEventListener("DOMContentLoaded", async function () {
       alertDiv.style.borderRadius = "5px";
       alertDiv.style.backgroundColor = "transparent";
       alertDiv.style.position = "absolute";
-      alertDiv.style.top = "75%"; 
-      alertDiv.style.left = "50%"; 
-      alertDiv.style.transform = "translateX(-50%)"; 
-    
+      alertDiv.style.top = "75%";
+      alertDiv.style.left = "50%";
+      alertDiv.style.transform = "translateX(-50%)";
+
       promptInput.parentElement.appendChild(alertDiv);
-    
-      setTimeout(function() {
+
+      setTimeout(function () {
         promptInput.parentElement.removeChild(alertDiv);
       }, 2000);
       return;
     }
     generateBtn.style.display = "none";
     transitionState.style.display = "block";
+    playerState.style.display = "none";
 
     try {
       const audioRes = await fetchAudio(prompt);
@@ -81,15 +114,13 @@ document.addEventListener("DOMContentLoaded", async function () {
       canvas.style.display = "block";
       downloadBtn.style.display = "block";
       generateBtn.style.display = "block";
-
+      playerState.style.display = "block";
       generateBtn.innerHTML = "Regenerate Music";
     } catch (error) {
       console.log(error); //TODO: do sth in UI
-      alert("An error occurred: " + error); 
+      alert("An error occurred: " + error);
     }
   });
-    
-
 
   // Audio player controls
   window.onload = function () {
@@ -99,7 +130,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     var currentTimeDisplay = document.getElementById("current-time");
     var rewindBtn = document.getElementById("rewind-btn");
     var forwardBtn = document.getElementById("forward-btn");
-  
+
     playPauseBtn.addEventListener("click", function () {
       if (audio.paused) {
         audio.play();
@@ -138,7 +169,6 @@ document.addEventListener("DOMContentLoaded", async function () {
       audio.volume = volumeControl.value;
     });
   };
-
 
   // Audio visualizer
   function draw() {
@@ -196,7 +226,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     link.href = audio.src;
     link.download = "download.mp3";
     link.click();
-    link.remove()
+    link.remove();
   });
-
 });
